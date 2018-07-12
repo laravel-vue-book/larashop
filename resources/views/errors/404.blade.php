@@ -1,0 +1,3 @@
+NOT FOUND
+
+{{$exception->getMessage()}}
