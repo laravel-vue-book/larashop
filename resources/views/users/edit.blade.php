@@ -19,6 +19,12 @@
     <label for="username">Username</label>
     <input value="{{$user->username}}" disabled class="form-control" placeholder="username" type="text" name="username" id="username"/>
     <br>
+
+    <label for="">Status</label>
+    <br/>
+    <input {{$user->status == "ACTIVE" ? "checked" : ""}} value="ACTIVE" type="radio" class="form-control" id="active" name="status"> <label for="active">Active</label>
+    <input {{$user->status == "INACTIVE" ? "checked" : ""}} value="INACTIVE" type="radio" class="form-control" id="inactive" name="status"> <label for="inactive">Inactive</label>
+    <br><br>
     
     <label for="">Roles</label>
     <br>
