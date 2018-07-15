@@ -23,6 +23,4 @@ Route::match(["GET", "POST"], "/register", function(){
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get("/error", function(){
-   abort(403, "NOT AUTHENTICATED");
-});
+Route::resource("users", "UserController");
