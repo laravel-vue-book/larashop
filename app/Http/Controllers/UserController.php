@@ -30,8 +30,8 @@ class UserController extends Controller
                     ->where('status', $status)
                     ->paginate(10);
             } else {
-                $users = \App\User::where('email', 'LIKE', "%$filterKeyword")
-                        ->paginate(10);
+                $users = \App\User::where('email', 'LIKE', "%$filterKeyword%")
+                    ->paginate(10);
             }
         }
 

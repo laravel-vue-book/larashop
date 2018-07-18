@@ -58,7 +58,7 @@
       <input class="form-control" placeholder="password confirmation" type="password" name="password_confirmation" id="password_confirmation"/>
       <br>
 
-      <input class="btn btn-primary" type="submit" value="Simpan"/>
+      <input class="btn btn-primary" type="submit" value="Save"/>
     </form>
   </div>
 
