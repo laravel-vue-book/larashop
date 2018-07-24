@@ -101,7 +101,7 @@
                   <input 
                     type="submit" 
                     class="btn btn-danger" 
-                    value="Delete">
+                    value="Trash">
                   
                 </form>
               </td>

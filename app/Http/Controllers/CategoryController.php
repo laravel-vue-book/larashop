@@ -136,12 +136,7 @@ class CategoryController extends Controller
     {
         $category = \App\Category::findOrFail($id);
 
-        if(!$category->trashed()){
-          $category->delete();
-        } else {
-          return redirect()->route('categories.index')
-          ->with('status', 'Category already in trash');
-        }
+        $category->delete();
       
         return redirect()->route('categories.index')
         ->with('status', 'Category successfully moved to trash');
@@ -180,5 +175,14 @@ class CategoryController extends Controller
           return redirect()->route('categories.index')
           ->with('status', 'Category permanently deleted');
         }
+    }
+
+
+    public function ajaxSearch(Request $request){
+        $keyword = $request->get('q');
+
+        $categories = \App\Category::where("name", "LIKE", "%$keyword%")->get();
+
+        return $categories;
     }
 }
