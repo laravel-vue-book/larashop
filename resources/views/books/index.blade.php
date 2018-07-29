@@ -97,7 +97,7 @@
               <td>
                   <a
                    href="{{route('books.edit', ['id' => $book->id])}}"
-                   class="btn btn-info"
+                   class="btn btn-info btn-sm"
                   > Edit </a>
 
                   <form
@@ -116,7 +116,7 @@
                   <input 
                     type="submit" 
                     value="Trash" 
-                    class="btn btn-danger">
+                    class="btn btn-danger btn-sm">
 
                   </form>
 

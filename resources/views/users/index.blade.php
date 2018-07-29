@@ -1,6 +1,6 @@
 @extends("layouts.global")
 
-@section("title") Users List @endsection 
+@section("title") Users list @endsection 
 
 @section("content")
 
@@ -17,7 +17,7 @@
       </div>
     </form>
 
-    <hr class="my-4">
+    <hr class="my-3">
 
     @if(session('status'))
     <div class="alert alert-success">
@@ -27,7 +27,7 @@
 
     <div class="row">
       <div class="col-md-12 text-right">
-          <a href="{{route('users.create')}}" class="btn btn-primary">Create User</a>
+          <a href="{{route('users.create')}}" class="btn btn-primary">Create user</a>
       </div>
     </div>
     <br>

@@ -1,6 +1,6 @@
 @extends('layouts.global')
 
-@section('title') Category List @endsection
+@section('title') Category list @endsection
 
 @section('content')
   <div class="row">
@@ -39,7 +39,7 @@
 
   </div>
   
-  <hr class="my-4">
+  <hr class="my-3">
 
   @if(session('status'))
     <div class="row">
@@ -50,6 +50,13 @@
       </div>
     </div>
   @endif 
+
+  <div class="row">
+    <div class="col-md-12 text-right">
+      <a href="{{route('categories.create')}}" class="btn btn-primary">Create category</a>
+    </div>
+  </div>
+  <br>
 
   <div class="row">
     <div class="col-md-12">
@@ -78,11 +85,11 @@
               <td>
                 <a 
                   href="{{route('categories.edit', ['id' => $category->id])}}"
-                  class="btn btn-info"> Edit </a>
+                  class="btn btn-info btn-sm"> Edit </a>
                   
                 <a 
                   href="{{route('categories.show', ['id' => $category->id])}}"
-                  class="btn btn-primary"> Show </a>
+                  class="btn btn-primary btn-sm"> Show </a>
                 
                 <form 
                   class="d-inline"
@@ -100,7 +107,7 @@
 
                   <input 
                     type="submit" 
-                    class="btn btn-danger" 
+                    class="btn btn-danger btn-sm" 
                     value="Trash">
                   
                 </form>
