@@ -23,15 +23,22 @@
     <label>Category name</label><br>
     <input 
       type="text" 
-      class="form-control" 
+      class="form-control {{$errors->first('name') ? "is-invalid" : ""}}"
+      value="{{old('name')}}"
       name="name">
+    <div class="invalid-feedback">
+      {{$errors->first('name')}}
+    </div>
     <br>
     
     <label>Category image</label>
     <input 
       type="file" 
-      class="form-control"
+      class="form-control {{$errors->first('image') ? "is-invalid" : ""}}"
       name="image">
+    <div class="invalid-feedback">
+      {{$errors->first('image')}}
+    </div>
     
     <br>
 

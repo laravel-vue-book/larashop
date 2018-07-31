@@ -27,17 +27,23 @@
       <label>Category name</label> <br>
       <input 
         type="text" 
-        class="form-control" 
-        value="{{$category->name}}" 
+        class="form-control {{$errors->first('name') ? "is-invalid" : ""}}" 
+        value="{{old('name') ? old('name') : $category->name}}" 
         name="name">
+        <div class="invalid-feedback">
+          {{$errors->first('name')}}
+        </div>
       <br><br>
 
       <label>Cateogry slug</label>
       <input 
         type="text" 
-        class="form-control" 
-        value="{{$category->slug}}" 
+        class="form-control {{$errors->first('slug') ? "is-invalid" : ""}}" 
+        value="{{old('slug') ? old('slug') : $category->slug}}"
         name="slug">
+      <div class="invalid-feedback">
+        {{$errors->first('slug')}}
+      </div>
       <br><br>
 
       <label>Category image</label><br>
@@ -48,9 +54,12 @@
       @endif
       <input 
         type="file" 
-        class="form-control" 
+        class="form-control {{$errors->first('image') ? "is-invalid" : ""}}" 
         name="image">
       <small class="text-muted">Kosongkan jika tidak ingin mengubah gambar</small>
+      <div class="invalid-feedback">
+        {{$errors->first('image')}}
+      </div>
       <br><br>
 
       <input type="submit" class="btn btn-primary" value="Update">
