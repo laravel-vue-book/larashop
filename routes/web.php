@@ -39,3 +39,12 @@ Route::resource('books', 'BookController');
 
 Route::resource('orders', 'OrderController');
 
+
+Route::get('/test/forbidden', function(){
+    abort(403, "Anda tidak memiliki hak akses");
+});
+
+Route::get('/test/me', function(){
+    return \Auth::user();
+});
+

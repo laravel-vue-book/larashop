@@ -4,8 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Gate;
+
 class UserController extends Controller
 {
+
+    public function __construct(){
+        $this->middleware(function($request, $next){
+            
+            if(Gate::allows('manage-users')) return $next($request);
+
+            abort(403, 'Anda tidak memiliki cukup hak akses');
+        });
+    }
     /**
      * Display a listing of the resource.
      *
@@ -78,7 +89,7 @@ class UserController extends Controller
         $new_user->address = $request->get('address');
         $new_user->phone = $request->get('phone');
         $new_user->email = $request->get('email');
-        $new_user->password = $request->get('password');
+        $new_user->password = \Hash::make($request->get('password'));
 
         if($request->file('avatar')){
           $file = $request->file('avatar')->store('avatars', 'public');
