@@ -44,6 +44,9 @@ Route::get('/test/forbidden', function(){
     abort(403, "Anda tidak memiliki hak akses");
 });
 
+Route::get('/datatables/users', 'UserDatatablesController@index');
+Route::get('/datatables/data', 'UserDatatablesController@data')->name('datatables.data');
+
 Route::get('/test/me', function(){
     return \Auth::user();
 });
