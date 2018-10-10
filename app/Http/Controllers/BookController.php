@@ -222,6 +222,8 @@ class BookController extends Controller
         if(!$book->trashed()){
           return redirect()->route('books.trash')->with('status', 'Book is not in trash!')->with('status_type', 'alert');
         } else {
+          $book->categories()->detach();
+          $book->orders()->detach();
           $book->forceDelete();
       
           return redirect()->route('books.trash')->with('status', 'Book permanently deleted!');
