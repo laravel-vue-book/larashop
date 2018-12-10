@@ -14,21 +14,21 @@ class LoginTest extends TestCase
 {
     use RefreshDatabase;
     
-    public function test_user_can_view_a_login_form()
+    public function testUserCanViewAloginForm()
     {   
         $response = $this->get('/login');
         $response->assertSuccessful();
         $response->assertViewIs('auth.login');
     }
 
-    public function test_user_cannot_view_a_login_form_when_authenticated()
+    public function testUserCannotViewAloginFormWhenAuthenticated()
     {
         $user = factory(User::class)->make();
         $response = $this->actingAs($user)->get('/login');
         $response->assertRedirect('/home');
     }
 
-    public function test_user_can_login_with_correct_credentials()
+    public function testUserCanLoginWithCorrectCredentials()
     {
         $password = "dedihartono";
 
@@ -48,7 +48,7 @@ class LoginTest extends TestCase
         $this->assertAuthenticatedAs($user);
     }
 
-    public function test_user_cannot_login_with_incorrect_password()
+    public function testUserCannotLoginWithIncorrectPassword()
     {
         $user = factory(User::class)->create([
             'username' => 'dedihartono',
@@ -68,7 +68,7 @@ class LoginTest extends TestCase
         $this->assertGuest();
     }
 
-    public function test_remember_me_functionality()
+    public function testRememberMeFunctionality()
     {
         $password = "dedihartono";
         $user = factory(User::class)->create([
