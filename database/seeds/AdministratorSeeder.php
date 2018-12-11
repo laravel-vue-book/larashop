@@ -11,7 +11,7 @@ class AdministratorSeeder extends Seeder
      */
     public function run()
     {
-        DB::table("users")->truncate();
+        // DB::table("users")->truncate(); //hilangkan karena constraint
 
         $administrator = new \App\User;
         $administrator->username = "administrator";
